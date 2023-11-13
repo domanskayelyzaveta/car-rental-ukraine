@@ -8,7 +8,6 @@ const initialState = {
   error: null,
   allCars: [],
   filter: { make: "", price: 0, mileageFrom: 0, mileageTo: 0 },
-
   hasMorePages: true,
   isModalOpen: false,
   selectedCar: null,

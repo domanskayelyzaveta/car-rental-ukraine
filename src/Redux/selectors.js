@@ -1,6 +1,5 @@
 export const selectCarsData = (state) => state.cars.carsData;
 export const selectAllCars = (state) => state.cars.allCars;
-export const selectPage = (state) => state.cars.nextPage;
 export const selectHasMorePages = (state) => state.cars.hasMorePages;
 export const selectsFilteredMake = (state) => state.cars.filter.make;
 export const selectOpenModal = (state) => state.cars.isModalOpen;
