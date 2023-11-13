@@ -1,23 +1,40 @@
 import React, { useState } from "react";
-import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
-import { StyledDiv } from "./FormSelectors.styled";
+import { FormControl, MenuItem } from "@mui/material";
+import {
+  FromToDiv,
+  SearchBtn,
+  StyleInputLabel,
+  StyledDiv,
+  StyledLabel,
+  StyledLeftInput,
+  StyledRightInput,
+  StyledSelect,
+} from "./FormSelectors.styled";
+
+import { useDispatch } from "react-redux";
+import makes from "../Makes/makes.json";
+import {
+  setFilter,
+  setMileageFrom,
+  setMileageTo,
+  setPriceFilter,
+} from "../../Redux/carReducer";
 
 const FormSelectors = () => {
   const [car, setCar] = useState("");
   const [price, setPrice] = useState("");
   const [fromValue, setFromValue] = useState("");
   const [toValue, setToValue] = useState("");
+  const dispatch = useDispatch();
 
   const handleCarChange = (event) => {
     setCar(event.target.value);
   };
+
   const handlePriceChange = (event) => {
     setPrice(event.target.value);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-  };
   const handleFromChange = (event) => {
     setFromValue(event.target.value);
   };
@@ -26,56 +43,95 @@ const FormSelectors = () => {
     setToValue(event.target.value);
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    dispatch(setFilter(event.target.elements.brand.value));
+    dispatch(setPriceFilter(event.target.elements.price.value));
+    dispatch(setMileageFrom(event.target.elements.from.value));
+    dispatch(setMileageTo(event.target.elements.to.value));
+  };
+
+  const makesPriceOptions = () => {
+    const optionsArray = [];
+    for (let i = 10; i < 300; i += 10) {
+      optionsArray.push(i);
+    }
+    return optionsArray;
+  };
+
+  const optionsPrice = makesPriceOptions();
+
   return (
     <form onSubmit={handleSubmit}>
       <StyledDiv>
         <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
-          <InputLabel id="demo-select-small-label">Car Brand</InputLabel>
-          <Select
+          <StyledLabel>Car brand</StyledLabel>
+          <StyledSelect
             labelId="demo-select-small-label"
             id="demo-select-small"
+            displayEmpty
             value={car}
-            label="Car Brand"
+            name="brand"
             onChange={handleCarChange}
+            height={48}
+            width={224}
           >
             <MenuItem value="">
-              <em>None</em>
+              <em>Enter the text</em>
             </MenuItem>
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
-          </Select>
+            {makes.map((car, index) => (
+              <MenuItem key={index} value={car}>
+                {car}
+              </MenuItem>
+            ))}
+          </StyledSelect>
         </FormControl>
         <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
-          <InputLabel id="demo-select-small-label">Price</InputLabel>
-          <Select
+          <StyledLabel>Price/ 1 hour</StyledLabel>
+          <StyledSelect
             labelId="demo-select-small-label"
             id="demo-select-small"
+            displayEmpty
             value={price}
-            label="Price"
+            name="price"
             onChange={handlePriceChange}
+            width={124}
+            height={48}
           >
             <MenuItem value="">
-              <em>None</em>
+              <em>to $</em>
             </MenuItem>
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
-          </Select>
+            {optionsPrice.map((price, index) => {
+              return (
+                <MenuItem key={index} value={price}>
+                  {price}
+                </MenuItem>
+              );
+            })}
+          </StyledSelect>
         </FormControl>
-        <input
-          type="text"
-          placeholder="From"
-          value={fromValue}
-          onChange={handleFromChange}
-        />
-        <input
-          type="text"
-          placeholder="To"
-          value={toValue}
-          onChange={handleToChange}
-        />
-        <button type="submit">Search</button>
+        <div>
+          <StyleInputLabel htmlFor="from-input">
+            Сar mileage / km
+          </StyleInputLabel>
+          <FromToDiv>
+            <StyledLeftInput
+              type="text"
+              placeholder="From"
+              name="from"
+              value={fromValue}
+              onChange={handleFromChange}
+            />
+            <StyledRightInput
+              type="text"
+              name="to"
+              placeholder="To"
+              value={toValue}
+              onChange={handleToChange}
+            />
+            <SearchBtn type="submit">Search</SearchBtn>
+          </FromToDiv>
+        </div>
       </StyledDiv>
     </form>
   );

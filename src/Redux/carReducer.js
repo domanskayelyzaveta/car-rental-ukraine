@@ -1,18 +1,42 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getCarThunk } from "./thunks";
+import { getAllCarThunk, getCarThunk } from "./thunks";
 
 const initialState = {
   carsData: [],
-  selectedCars: [],
   id: null,
   isLoading: false,
   error: null,
-  filter: [],
+  allCars: [],
+  filter: { make: "", price: 0, mileageFrom: 0, mileageTo: 0 },
+
+  hasMorePages: true,
+  isModalOpen: false,
+  selectedCar: null,
 };
 
 const carSlice = createSlice({
   name: "cars",
   initialState,
+  reducers: {
+    setFilter: (state, action) => {
+      state.filter.make = action.payload;
+    },
+    setPriceFilter: (state, action) => {
+      state.filter.price = Number(action.payload);
+    },
+    setMileageFrom: (state, action) => {
+      state.filter.mileageFrom = Number(action.payload);
+    },
+    setMileageTo: (state, action) => {
+      state.filter.mileageTo = Number(action.payload);
+    },
+    setOpenModal: (state, action) => {
+      state.isModalOpen = action.payload;
+    },
+    setSelectedCar: (state, action) => {
+      state.selectedCar = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getCarThunk.pending, (state) => {
@@ -23,9 +47,24 @@ const carSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.carsData.push(...action.payload);
-        console.log(action.payload);
+        if (action.payload.length === 0) {
+          state.hasMorePages = false;
+        }
       })
       .addCase(getCarThunk.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+      .addCase(getAllCarThunk.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(getAllCarThunk.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.allCars = action.payload;
+      })
+      .addCase(getAllCarThunk.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       });
@@ -33,3 +72,13 @@ const carSlice = createSlice({
 });
 
 export const carReducer = carSlice.reducer;
+export const {
+  setFilter,
+  setIdSelectedCar,
+  setOpenModal,
+  setSelectedCar,
+  setPriceFilter,
+  setMileageFilter,
+  setMileageFrom,
+  setMileageTo,
+} = carSlice.actions;

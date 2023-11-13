@@ -1,12 +1,23 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { fetchCatalog } from "../service/Api";
+import { fetchAllCatalog, fetchCatalog } from "../service/Api";
 
 export const getCarThunk = createAsyncThunk(
   "cars/getCarThunk",
-
-  async (carsData, thunkAPI) => {
+  async (page, thunkAPI) => {
     try {
-      const response = await fetchCatalog();
+      const response = await fetchCatalog(page);
+      return response;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const getAllCarThunk = createAsyncThunk(
+  "cars/getAllCarThunk",
+  async (_, thunkAPI) => {
+    try {
+      const response = await fetchAllCatalog();
       return response;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

@@ -1,27 +1,18 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
-import {
-  //   Img,
-  List,
-  ListItem,
-  NavWrapper,
-  //   StyledLink,
-} from "./Navigation.styled";
-// import logo from "../../images/logo.jpg";
+import { List, ListItem, NavWrapper, StyledNavLink } from "./Navigation.styled";
 
 const Navigation = () => {
   return (
     <NavWrapper>
-      <Link to="/">{/* <Img src={logo} alt="logo" /> */}</Link>
       <List>
         <ListItem>
-          <NavLink to="/">Home</NavLink>
+          <StyledNavLink to="/">Home</StyledNavLink>
         </ListItem>
         <ListItem>
-          <NavLink to="/catalog">Catalog</NavLink>
+          <StyledNavLink to="/catalog">Catalog</StyledNavLink>
         </ListItem>
         <ListItem>
-          <NavLink to="/favorites">Favorites</NavLink>
+          <StyledNavLink to="/favorites">Favorites</StyledNavLink>
         </ListItem>
       </List>
     </NavWrapper>

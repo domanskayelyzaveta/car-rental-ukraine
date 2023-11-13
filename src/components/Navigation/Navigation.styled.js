@@ -2,11 +2,14 @@ import styled from "@emotion/styled";
 import { NavLink } from "react-router-dom";
 
 export const NavWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   height: 40px;
   width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+
+  background-color: rgba(18, 20, 23, 0.5);
 `;
 
 export const Img = styled.img`
@@ -17,16 +20,17 @@ export const Img = styled.img`
 
 export const List = styled.ul`
   display: flex;
+  color: white;
 `;
 
 export const ListItem = styled.li`
   margin: 0 10px;
 `;
 
-export const StyledLink = styled(NavLink)`
-  color: #fff;
+export const StyledNavLink = styled(NavLink)`
+  color: white;
 
-  &.active {
-    font-weight: bold;
-  }
+  // &.active {
+  //   font-weight: bold;
+  // }
 `;

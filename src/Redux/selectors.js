@@ -1,1 +1,13 @@
 export const selectCarsData = (state) => state.cars.carsData;
+export const selectAllCars = (state) => state.cars.allCars;
+export const selectPage = (state) => state.cars.nextPage;
+export const selectHasMorePages = (state) => state.cars.hasMorePages;
+export const selectsFilteredMake = (state) => state.cars.filter.make;
+export const selectOpenModal = (state) => state.cars.isModalOpen;
+export const selectSelectedCar = (state) => state.cars.selectedCar;
+export const selectFavorites = (state) => state.favorites.favorite;
+export const selectSelectedCard = (state) => state.selectedCard;
+export const selectedPrice = (state) => state.cars.filter.price;
+export const selectedMileageFrom = (state) => state.cars.filter.mileageFrom;
+export const selectedMileageTo = (state) => state.cars.filter.mileageTo;
+export const selectIsLoading = (state) => state.cars.isLoading;
