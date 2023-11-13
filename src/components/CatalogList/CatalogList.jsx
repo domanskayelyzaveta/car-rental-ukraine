@@ -140,7 +140,7 @@ const CatalogList = () => {
                       </ImgContainer>
                       <CarMainInfoDiv>
                         <p>
-                          {car.make}
+                          {car.make}{" "}
                           <HighlightedSpan>{car.model}</HighlightedSpan>,{" "}
                           {car.year}
                         </p>
@@ -194,8 +194,8 @@ const CatalogList = () => {
                     </ImgContainer>
                     <CarMainInfoDiv>
                       <p>
-                        {car.make}
-                        <HighlightedSpan>{car.model}</HighlightedSpan>,
+                        {car.make}{" "}
+                        <HighlightedSpan>{car.model}</HighlightedSpan>,{" "}
                         {car.year}
                       </p>
                       <p>{car.rentalPrice}</p>
