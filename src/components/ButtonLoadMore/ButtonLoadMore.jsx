@@ -3,7 +3,6 @@ import { ButtonWrapper, StyledLoadMoreButton } from "./ButtonLoadMore.styled";
 import { useDispatch, useSelector } from "react-redux";
 import { getCarThunk } from "../../Redux/thunks";
 import {
-  selectAllCars,
   selectCarsData,
   selectHasMorePages,
   selectsFilteredMake,
