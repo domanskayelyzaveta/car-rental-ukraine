@@ -153,8 +153,10 @@ const Modal = ({ selectedCar, index, beforeLastWord, lastWord }) => {
 
                     <PriceAndMileage>
                       <LiCondition>
-                        Price:
-                        <BlueSpan>{selectedCar.rentalPrice}</BlueSpan>
+                        Price:{" "}
+                        <BlueSpan>
+                          {selectedCar.rentalPrice.replace("$", "") + "$"}
+                        </BlueSpan>
                       </LiCondition>
                       <LiCondition>
                         Mileage: <BlueSpan>{selectedCar.mileage}</BlueSpan>
