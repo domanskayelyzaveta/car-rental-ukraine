@@ -11,6 +11,7 @@ import { selectIsLoading } from "../Redux/selectors";
 
 import Loader from "./Loader/Loader";
 import FavoritesPage from "../pages/Favorites/FavoritesPage";
+import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -35,6 +36,7 @@ const App = () => {
             <Route path="favorites" element={<FavoritesPage />} />
           </Route>
           <Route path="*" element={<Navigate to="/" />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       )}
     </>
