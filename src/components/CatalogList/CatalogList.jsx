@@ -60,29 +60,29 @@ const CatalogList = () => {
 
   const getFilteredCars = () => {
     let newFilteredCars = [...allCars];
+    let isFilterApplied = false;
 
-    switch (true) {
-      case !!filterValue:
-        newFilteredCars = newFilteredCars.filter((car) =>
-          car.make.toLowerCase().includes(filterValue.toLowerCase().trim())
-        );
-        break;
-      case !!carsPrice:
-        newFilteredCars = newFilteredCars.filter(
-          (car) => parseFloat(car.rentalPrice.replace("$", "")) <= carsPrice
-        );
-        break;
-      case !!mileageFrom:
-        newFilteredCars = newFilteredCars.filter(
-          (car) =>
-            Number(car.mileage) >= mileageFrom &&
-            Number(car.mileage) <= mileageTo
-        );
-        break;
-      default:
+    if (!!filterValue) {
+      newFilteredCars = newFilteredCars.filter((car) =>
+        car.make.toLowerCase().includes(filterValue.toLowerCase().trim())
+      );
+      isFilterApplied = true;
+    }
+    if (!!carsPrice) {
+      newFilteredCars = newFilteredCars.filter(
+        (car) => parseFloat(car.rentalPrice.replace("$", "")) <= carsPrice
+      );
+      isFilterApplied = true;
+    }
+    if (!!mileageFrom) {
+      newFilteredCars = newFilteredCars.filter(
+        (car) =>
+          Number(car.mileage) >= mileageFrom && Number(car.mileage) <= mileageTo
+      );
+      isFilterApplied = true;
     }
 
-    if (newFilteredCars.length === 0) {
+    if (isFilterApplied && newFilteredCars.length === 0) {
       Toast.warning("There is no result", {
         position: "top-center",
         autoClose: 3000,
