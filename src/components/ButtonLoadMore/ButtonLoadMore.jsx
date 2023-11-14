@@ -2,12 +2,17 @@ import React, { useState } from "react";
 import { ButtonWrapper, StyledLoadMoreButton } from "./ButtonLoadMore.styled";
 import { useDispatch, useSelector } from "react-redux";
 import { getCarThunk } from "../../Redux/thunks";
-import { selectCarsData, selectHasMorePages } from "../../Redux/selectors";
+import {
+  selectAllCars,
+  selectCarsData,
+  selectHasMorePages,
+} from "../../Redux/selectors";
 
 const ButtonLoadMore = () => {
   const dispatch = useDispatch();
   const hasMorePages = useSelector(selectHasMorePages);
   const carsData = useSelector(selectCarsData);
+  const allCarsData = useSelector(selectAllCars);
 
   const [page, setPage] = useState(1);
 
@@ -16,7 +21,8 @@ const ButtonLoadMore = () => {
     setPage(page + 1);
   };
 
-  const shouldHideButton = !hasMorePages || carsData.length < 1;
+  const shouldHideButton =
+    !hasMorePages || carsData.length < 1 || allCarsData.length < 1;
 
   return (
     <ButtonWrapper>
