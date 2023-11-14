@@ -15,7 +15,7 @@ const ButtonLoadMore = () => {
     setPage(page + 1);
   };
 
-  const shouldHideButton = !hasMorePages || Filtered.length <= 0;
+  const shouldHideButton = !hasMorePages;
 
   return (
     <ButtonWrapper>
