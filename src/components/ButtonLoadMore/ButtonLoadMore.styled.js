@@ -1,16 +1,13 @@
 import styled from "@emotion/styled";
 
 export const StyledLoadMoreButton = styled.button`
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 20px;
-  width: 150px;
-  height: 30px;
-  border-radius: 12px;
   border: none;
-  color: #fff;
-  background: #3470ff;
+  background: none;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  color: #3470ff;
+  text-decoration-line: underline;
 `;
 
 export const ButtonWrapper = styled.div`
