@@ -130,6 +130,7 @@ export const PriceAndMileage = styled.div`
 `;
 
 export const BlueSpan = styled.span`
+  font-family: Montserrat;
   font-weight: 600;
   color: #3470ff;
 `;

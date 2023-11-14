@@ -109,6 +109,7 @@ export const HeartIcon = styled.svg`
 `;
 
 export const HighlightedSpan = styled.span`
+  font-family: Montserrat;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
