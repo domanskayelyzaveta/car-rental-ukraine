@@ -17,10 +17,8 @@ export const StyledUl = styled.ul`
 `;
 
 export const StyledLi = styled.li`
-  // flex: 1 0 calc(25% - 29px);
   gap: 30px;
   height: 426px;
-  // margin-top: 50px;
 `;
 
 export const CarInfoWrapper = styled.div`
@@ -34,7 +32,6 @@ export const CarInfoWrapper = styled.div`
 
 export const Paragraph = styled.p`
   color: rgba(18, 20, 23, 0.5);
-  // font-family: sans-serif;
   font-size: 10px;
   font-style: normal;
   font-weight: 400;
@@ -80,7 +77,6 @@ export const CarMainInfoDiv = styled.div`
 `;
 
 export const LearnMoreButton = styled.button`
-  // font-family: sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
@@ -113,7 +109,6 @@ export const HeartIcon = styled.svg`
 `;
 
 export const HighlightedSpan = styled.span`
-  // font-family: sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;

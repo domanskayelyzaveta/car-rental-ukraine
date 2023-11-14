@@ -42,7 +42,6 @@ export const ImgModalDiv = styled.div`
 `;
 
 export const BtnRentalCar = styled.button`
-  // font-family: sans-serif;
   padding: 12px 50px;
   width: 168px;
   font-size: 14px;
@@ -93,13 +92,11 @@ export const AccessoriesDiv = styled.div`
 
 export const FunctionalitySpan = styled.span`
   color: rgba(18, 20, 23, 0.5);
-  // font-family: sans-serif;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
   line-height: 18px;
   padding-right: 6px;
-  // border-right: 1px solid rgba(18, 20, 23, 0.1);
 `;
 
 export const LiCondition = styled.li`
@@ -147,13 +144,11 @@ export const MainInfoDiv = styled.div`
 
 export const ParagraphModal = styled.p`
   color: rgba(18, 20, 23, 0.5);
-  // font-family: sans-serif;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
   line-height: 18px;
   padding-right: 4px;
-  // padding-left: 4px;
 
   &::before {
     content: "\u00a0";

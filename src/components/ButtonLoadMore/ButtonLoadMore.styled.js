@@ -1,7 +1,6 @@
 import styled from "@emotion/styled";
 
 export const StyledLoadMoreButton = styled.button`
-  // font-family: sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;

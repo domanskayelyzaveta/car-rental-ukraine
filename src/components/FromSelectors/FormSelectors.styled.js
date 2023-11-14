@@ -19,7 +19,6 @@ export const StyledSelect = styled(Select)`
 `;
 
 export const StyledLabel = styled.label`
-  // font-family: sans-serif;
   font-size: 14px;
   font-weight: 500;
   line-height: 18px;
@@ -34,14 +33,12 @@ export const StyledLeftInput = styled.input`
   align-items: center;
   flex-shrink: 0;
   border: none;
-  // border-right: 1px solid rgba(18, 20, 23, 0.2);
   border: 1px solid rgba(18, 20, 23, 0.2);
   border-radius: 14px 0px 0px 14px;
   background: #f7f7fb;
   outline-color: #3470ff;
 
   &::placeholder {
-    // font-family: sans-serif;
     font-style: italic;
     font-size: 14px;
     font-weight: 500;
@@ -64,7 +61,6 @@ export const StyledRightInput = styled.input`
   outline-color: #3470ff;
 
   &::placeholder {
-    // font-family: sans-serif;
     font-style: italic;
     font-size: 14px;
     font-weight: 500;
@@ -74,7 +70,6 @@ export const StyledRightInput = styled.input`
 `;
 
 export const StyleInputLabel = styled.label`
-  // font-family: sans-serif;
   font-size: 14px;
   font-weight: 500;
   line-height: 18px;
@@ -96,7 +91,6 @@ export const SearchBtn = styled.button`
   margin-left: 18px;
 
   color: var(--White, #fff);
-  // font-family: sans-serif;
   font-size: 14px;
   font-weight: 600;
   line-height: 20px;

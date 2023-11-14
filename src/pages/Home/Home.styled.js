@@ -9,8 +9,6 @@ export const StyledHomePage = styled.div`
   background-size: cover;
   position: relative;
 
-  //   align-items: flex-start;
-  //   justify-content: center;
   color: white;
   padding: 0px;
 `;

@@ -29,8 +29,4 @@ export const ListItem = styled.li`
 
 export const StyledNavLink = styled(NavLink)`
   color: white;
-
-  // &.active {
-  //   font-weight: bold;
-  // }
 `;
