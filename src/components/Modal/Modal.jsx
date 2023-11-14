@@ -65,12 +65,18 @@ const Modal = ({ selectedCar, index, beforeLastWord, lastWord }) => {
   };
 
   const highlightRentalConditions = (text) => {
-    const conditionsRegex = /(:\s*\d+)/g;
+    const conditionsRegex = /(\s*\d+)/g;
     const parts = text.split(conditionsRegex);
 
     const highlightedElements = parts.map((part, index) =>
       conditionsRegex.test(part) ? (
-        <span key={index} style={{ color: "#3470ff" }}>
+        <span
+          key={index}
+          style={{
+            color: "#3470ff",
+            fontWeight: "600",
+          }}
+        >
           {part}
         </span>
       ) : (
